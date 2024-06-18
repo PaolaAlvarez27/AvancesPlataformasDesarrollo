@@ -13,20 +13,22 @@ import java.awt.event.ActionListener;
  * @author user
  */
 public class ResumenPedido extends javax.swing.JFrame {
-    private PedidoManager pedidoManager;
+    private final PedidoManager pedidoManager;
     /**
      * Creates new form ResumenPedido
      * @param pedidoManager
      */
     public ResumenPedido(PedidoManager pedidoManager) {
-        this.pedidoManager= pedidoManager;
+        this.pedidoManager = pedidoManager;
+        this.setLocationRelativeTo(null);
         initComponents();
         mostrarResumen();
+        setupListeners();
     }
 
-    private ResumenPedido() {
+    /*private ResumenPedido() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,7 +51,7 @@ public class ResumenPedido extends javax.swing.JFrame {
         btnEnviar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Resumen Pedido");
+        setTitle("Pedido a farmacia");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,13 +99,13 @@ public class ResumenPedido extends javax.swing.JFrame {
 
         btnCancelar.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, -1, -1));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
 
         btnEnviar.setBackground(new java.awt.Color(0, 204, 51));
         btnEnviar.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
         btnEnviar.setForeground(new java.awt.Color(255, 255, 255));
         btnEnviar.setText("ENVIAR");
-        jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 160, 60));
+        jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 160, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,7 +121,7 @@ public class ResumenPedido extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void setupListeners() {
+        private void setupListeners() {
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnviarActionPerformed(evt);
@@ -136,26 +138,24 @@ public class ResumenPedido extends javax.swing.JFrame {
     private void mostrarResumen() {
         lblXUnddeTM.setText(pedidoManager.getCantidadMedicamento() + " Unidades de " + pedidoManager.getTipoMedicamento() + " " + pedidoManager.getNombreMedicamento());
         lblDistribuid.setText("Pedido al distribuidor: " + pedidoManager.getDistribuidor());
-        lblUbicacion.setText("Para la farmacia situada en " + pedidoManager.getSucursal());
+
+        if (pedidoManager.getSucursal().equals("Principal")) {
+            setTitle("Pedido al distribuidor D");
+            lblUbicacion.setText("Para la farmacia situada en Calle de la Rosa n. 28");
+        } else if (pedidoManager.getSucursal().equals("Secundaria")) {
+            setTitle("Pedido al distribuidor D");
+            lblUbicacion.setText("Para la farmacia situada en Calle Alcazabilla n. 3");
+        }
     }
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {
-        // Lógica para enviar el pedido
-        JOptionPane.showMessageDialog(this, "Pedido enviado exitosamente!");
+        // Mostrar mensaje de confirmación
+        JOptionPane.showMessageDialog(this, "¡Pedido enviado!");
     }
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {
-        // Lógica para cancelar el pedido
+        // Cerrar la ventana
         this.dispose();
-    }
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                // Este constructor no debe ser utilizado directamente
-                // porque requiere un PedidoManager
-            }
-        });
     }
     /**
      * @param args the command line arguments

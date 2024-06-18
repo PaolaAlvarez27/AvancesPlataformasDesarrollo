@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package OrdenarMedicam;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +17,7 @@ public class OpcionesPedido extends javax.swing.JFrame implements ActionListener
         initComponents();
         this.setLocationRelativeTo(null);
         pedidoManager = new PedidoManager();
+        setupListeners();
     }
 
     /**
@@ -158,6 +156,7 @@ public class OpcionesPedido extends javax.swing.JFrame implements ActionListener
         cbPrincip.setText("Principal");
         bg.add(cbPrincip, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, -1, -1));
 
+        cbSecund.setFont(new java.awt.Font("Franklin Gothic Book", 0, 12)); // NOI18N
         cbSecund.setText("Secundaria");
         bg.add(cbSecund, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, -1, -1));
 
@@ -188,19 +187,58 @@ public class OpcionesPedido extends javax.swing.JFrame implements ActionListener
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // Se crean los ActionListeners teniendo en cuenta los clics en Confirmar y Borrar
     private void setupListeners() {
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarActionPerformed(evt);
             }
         });
+
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
     }
+    
+    /** 
+     * Se configura la acción a ejecutarse cuando se hace click en confirmar
+     * ocurre la validación de datos registrados o seleccionados por el usuario
+     */
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {
+        // Verificar que todos los campos estén diligenciados
+        if (txtNombMedicam.getText().isEmpty() || txtCantidadMedic.getText().isEmpty() ||
+            (!rbDist1.isSelected() && !rbDist2.isSelected() && !rbDist3.isSelected()) ||
+            (!cbPrincip.isSelected() && !cbSecund.isSelected())) {
+            JOptionPane.showMessageDialog(this, "Todos los campos deben estar diligenciados.");
+            return;
+        }
+
+        // Se valida el nombre del medicamento
+        if (!txtNombMedicam.getText().matches("[a-zA-Z0-9 ]+")) {
+            JOptionPane.showMessageDialog(this, "En 'Nombre del medicamento', no se permiten caracteres especiales, solo alfanuméricos.");
+            return;
+        }
+
+        // Capturar y validar la cantidad de medicamento
+        int cantidadMedicamento;
+        try {
+            cantidadMedicamento = Integer.parseInt(txtCantidadMedic.getText());
+            if (cantidadMedicamento <= 0) {
+                JOptionPane.showMessageDialog(this, "La cantidad de medicamento debe ser un número entero positivo.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "En 'Cantidad de medicamento', solo se admiten números.");
+            return;
+        }
+
         // Capturar datos del formulario
         pedidoManager.setNombreMedicamento(txtNombMedicam.getText());
         pedidoManager.setTipoMedicamento(cbTipoMedic.getSelectedItem().toString());
-        pedidoManager.setCantidadMedicamento(Integer.parseInt(txtCantidadMedic.getText()));
+        pedidoManager.setCantidadMedicamento(cantidadMedicamento);
 
         if (rbDist1.isSelected()) {
             pedidoManager.setDistribuidor(rbDist1.getText());
@@ -222,40 +260,25 @@ public class OpcionesPedido extends javax.swing.JFrame implements ActionListener
         this.dispose();
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(OpcionesPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(OpcionesPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(OpcionesPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(OpcionesPedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {
+        // Limpiar todos los campos
+        txtNombMedicam.setText("");
+        txtCantidadMedic.setText("");
+        cbTipoMedic.setSelectedIndex(0);
+        rbDist1.setSelected(false);
+        rbDist2.setSelected(false);
+        rbDist3.setSelected(false);
+        cbPrincip.setSelected(false);
+        cbSecund.setSelected(false);
+    }
 
-        /* Create and display the form */
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new OpcionesPedido().setVisible(true);
             }
         });
-    }  
+    }   
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
