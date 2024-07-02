@@ -1,0 +1,15 @@
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\bin\Debug\net6.0-windows\DrugstoreOrders.exe
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\bin\Debug\net6.0-windows\DrugstoreOrders.deps.json
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\bin\Debug\net6.0-windows\DrugstoreOrders.runtimeconfig.json
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\bin\Debug\net6.0-windows\DrugstoreOrders.dll
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\bin\Debug\net6.0-windows\DrugstoreOrders.pdb
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\obj\Debug\net6.0-windows\DrugstoreOrders.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\obj\Debug\net6.0-windows\DrugstoreOrders.AssemblyInfoInputs.cache
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\obj\Debug\net6.0-windows\DrugstoreOrders.AssemblyInfo.cs
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\obj\Debug\net6.0-windows\DrugstoreOrders.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\obj\Debug\net6.0-windows\DrugstoreOrders.sourcelink.json
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\obj\Debug\net6.0-windows\DrugstoreOrders.dll
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\obj\Debug\net6.0-windows\refint\DrugstoreOrders.dll
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\obj\Debug\net6.0-windows\DrugstoreOrders.pdb
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\obj\Debug\net6.0-windows\DrugstoreOrders.genruntimeconfig.cache
+C:\Users\user\Documents\UNIR\Esp_IngenieriaSoftware\PlataformasDesarrollosSoftware_PER10351\Actividad2\DrugstoreOrders\obj\Debug\net6.0-windows\ref\DrugstoreOrders.dll
