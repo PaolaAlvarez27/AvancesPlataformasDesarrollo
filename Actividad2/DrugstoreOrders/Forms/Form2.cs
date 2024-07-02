@@ -17,9 +17,11 @@ namespace DrugstoreOrders.Forms
 
         private void DisplayPedido()
         {
+            string direccion = pedidoManager.Sucursal == "Principal" ? "Calle de la Rosa n. 28" : "Calle Alcazabilla n. 3";
+
             lblResumen.Text = $"Pedido al distribuidor: {pedidoManager.Distribuidor}\n" +
                               $"{pedidoManager.CantidadMedicamento} Unidades de {pedidoManager.TipoMedicamento} {pedidoManager.NombreMedicamento}\n" +
-                              $"Para la farmacia situada en {pedidoManager.Sucursal}";
+                              $"Para la farmacia situada en {direccion}";
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)
